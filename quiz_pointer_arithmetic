@@ -1,0 +1,60 @@
+Activity
+
+1. Suppose you have declared an array of integers by typing
+
+int numbers[] = {4, -1, 8, 3, 0, -11};
+
+What is *(numbers+4) ?
+
+0
+
+2. Suppose you have declared an array of integers by typing
+
+int numbers[] = {4, -1, 8, 3, 0, -11};
+
+What is *numbers+4 ? Notice that the only difference to the previous question is the omission of parenthesis.
+
+8
+
+/*code to test it*/
+
+#include <stdio.h>
+int main() 
+{
+    int numbers[] = {4, -1, 8, 3, 0, -11};
+    printf("%d\n", *(numbers+4));
+    printf("%d\n", *numbers + 4);
+    return 0;
+}
+(*number will dereference what is pointed by number.
+So this syntax matches value which is stored at address given by number, 
+and array's name stores address of its first cell.)
+
+3. Suppose you have declared an array of integers by typing
+
+int numbers[] = {4, -1, 8, 3, 0, -11};
+
+What is numbers[10] ?
+
+Note that this question is about the behavior of a general C compiler. 
+
+correct: Random and depends on what was stored in memory here before
+
+4. Suppose you have declared an array of integers by typing
+
+int numbers[] = {4, -1, 8, 3, 0, -11};
+
+You have furthermore declared a pointer via
+
+int *ptr;
+
+and initialized it via
+
+ptr = numbers + 2;
+
+and then executed ptr++;
+
+What is *ptr?
+
+(Adding 1 to a pointer makes compiler fetch the next value of same type from the address pointed by the pointer.
+And ptr ++ is equivalent to ptr = ptr + 1.)
