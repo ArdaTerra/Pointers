@@ -1,0 +1,433 @@
+Another example of the use of malloc, memory allocation, for an array for which we don't know the size in advance.
+So the example is that we have an array, but we don't know the size in advance. So we will ask the user, 
+what is the size of the array? And then we will allocate in memory the size
+that we need to compute the average of all the numbers in that array.
+
+So first we need to include, of course, stdio.h, standard input output. But also, because we are going to use malloc, 
+we need stdlib, library. And the main.
+
+So the example needs first to show the memory. Anyway, we are going to use a number of cells in the array.
+So this is the number of elements in the array. We are going to use an index for the array.
+
+I'm going to use a pointer for the array. Remember that the name of an array is the address of the first cell.
+
+So, if I use a pointer like this, int star array, in this variable array I can store the address of the first cell 
+of the array. So, if I use malloc, memory allocation, to allocate a certain number of elements in memory, 
+I can get the first address and put this address in the array variable and use it as an array.
+And then I want to calculate the average of this array, of all the elements of the array. And let's put 
+the average in a double variable of average.
+
+So, first, because we don't know the size of the array, we are going to ask, how many grades--
+Let's imagine that we want to have the average of grades in an array. So how many grades would you like to enter?
+And that will be the size of the array. So we scanf a %d. And we put the answer in the number of elements, num.
+
+And then I am going to write a function that will allocate this array in memory, using malloc.
+For this, I'm going to write a simple function-- allocate integer array-- that will get, as an argument, 
+the number of elements. So here I can write the prototype of this function, just at the top, here.
+So what I will get from allocate int array is the address of the first element.
+So it will be int star, because it's an array. The name is "allocate int array."
+
+And what I get as an argument, here, as a parameter, here, is an integer. So that's the prototype of the function.
+And I can try to write the function just at the bottom, here. So let me get first the same prototype, allocate int array.
+
+And then int. And let's name it num, the same. So how do we do that? How do we allocate a certain number of integers?
+Well, we know how to do that using malloc. So, memory allocation.
+
+How many elements do we want to allocate? Well, num. And what is the size of each element?
+Well, it's size of integer. And what do we get from memory allocation?
+
+Well, we get the address of the beginning of the space that was allocated into memory.
+
+So we can put that in a pointer variable, int star ptr.
+
+Why int star? Well, because we are here--
+
+We are allocating an array of integers.
+
+So I get the address in this variable, here.
+
+And it's a good use, a good manner, to cast into an int star
+
+because usually malloc gives you a generic pointer, void star.
+
+But here we are using int star. So that's why I cast it into a pointer
+
+to an integer.
+
+And I get the address here.
+
+So what do I do with this address?
+
+Very simple-- I return it.
+
+And, because I will return it, I have the same type here.
+
+And I will get it in the main, here, in the array, as you can see.
+
+And the array is indeed an int star.
+
+
+What else do I have to do?
+
+Well, I have to ask the user to enter the grades.
+
+So I have to enter how many grades?
+
+Num. So please enter %d grades.
+
+
+And %d is num.
+
+So for that we are going to use a for-loop, starting with zero,
+
+until we get to the number of grades.
+
+So that's a very standard for-loop.
+
+And inside the for-loop, well, I just have to do a scanf of %d.
+
+And here I will scanf each grade and put it in the array.
+
+So how do I do that?
+
+I know that I have to get an address, for scanf.
+
+And the address of the first cell is array.
+
+And the address of the second cell, the second element of the array, is--
+
+if we use the pointer arithmetic array plus 1, and the second array plus 2,
+
+et cetera--
+
+So the generic way to use that in the for-loop is to use array plus I.
+
+And, like this, I'm going to scanf all the grades that the user is entering
+
+and put them in all the cells of the array.
+
+So that's using the pointer arithmetic here.
+
+All right.
+
+Now that we have all the grades in the array, we can calculate the average.
+
+So, average-- let's try to use another function, here.
+
+And let's call this function "find average."
+
+What do I have to give to this function?
+
+Well, the array, of course.
+
+But I also need to give the number of elements in this array,
+
+because the number is a variable.
+
+It depends on how many grades we'd like to enter.
+
+So it depends on what the user just entered, here.
+
+So, for find average to be able to stop at the end of the array,
+
+we need to know how many elements are inside this array, like this.
+
+So I can write a prototype of this function.
+
+So what is the return type of the function?
+
+Average is a double, so it's a double, and it
+
+will be the average of all the grades in this array.
+
+And the name is "find average."
+
+And what is the type of the first argument?
+
+The first parameter is array.
+
+And array is an int star.
+
+So it's the pointer to the first element of the array.
+
+It's also the address of the array.
+
+And the second is the number of elements,
+
+so it's an integer, just like that.
+
+And that's the prototype.
+
+And let me try to write this function at the bottom.
+
+So double find average.
+
+And then int star. Let's name it "array" and "int num." All right?
+
+So how do we calculate the average of all the elements in this array?
+
+I need an index, first.
+
+And then let's create a double average, to store the result.
+
+First it will be zero, and then a for loop.
+
+
+We start at zero.
+
+Oops.
+
+Up to the number of elements.
+
+i plus plus.
+
+And what do we do here?
+
+Well, first we will add all--
+
+we will sum up all the elements.
+
+So average I sum up using plus equals, so it's the same as equal average
+
+plus something.
+
+And I will get the array of I element by just sum up all the array elements,
+
+here.
+
+And then, after the for loop, I just do average equals average
+
+divided by the number of elements.
+
+And I just return the average, like this.
+
+OK, looks good for me.
+
+And then I go back to the main function.
+
+What do I do with the average?
+
+Well, I can just printf.
+
+The average grade is--
+
+And let's print it with the %.2f.
+
+All right?
+
+
+Average.
+
+
+What do I have to do?
+
+And that we sometimes forget to do, before quitting a program
+
+or when we don't need any more memory space that we just allocated?
+
+Because we remember that we just allocated with memory allocation, here,
+
+a certain number of integer into memory.
+
+So here we have free the array.
+
+And that will free the space that was allocated with a memory allocation,
+
+in this function, just here.
+
+All right, but, well, anyway, just after we return zero
+
+and it's the end of the program, so it will be freed anyway.
+
+But here it's a good practice always to check that,
+
+for each memory allocation you have in the program,
+
+not only in the main but all the functions,
+
+you have the equivalent of free before the end of the program.
+
+Otherwise, it will have a memory leak.
+
+You can allocate a lot of memory, during the program, in a loop or something.
+
+And, if you forget to free the memory that was allocated,
+
+you have a memory leak, and you could just explode
+
+the memory consumption of the program.
+
+So you really have to be aware of that matter and use the free
+
+for each element, for each variable, that you allocated in memory.
+
+This program looks good to me.
+
+Ooh, that was long.
+
+Let's try to compile.
+
+I hope I don't have any problems when I compile.
+
+Wow.
+
+It's just-- [LAUGH] it looks pretty good,
+
+and it compiled good the first time.
+
+Nice.
+
+So let's try to execute step-by-step and see what's happening.
+
+So, first, I have the number and I. All right.
+
+And a pointer, and the average.
+
+And I ask, how many grades would you like to enter?
+
+Let's put 3.
+
+So I scanf, and I have 3 in the number of elements
+
+I want to allocate in memory.
+
+And then I will go inside allocate intarray,
+
+and we'll see what's happening.
+
+All right, so now we have allocate intarray.
+
+And we are going to execute the memory allocation, malloc, 3 times
+
+size of int.
+
+Let's do that.
+
+And, as you can see, the pointer is now at the address 168.
+
+So let's scroll all the way up to 168.
+
+All right, that's it.
+
+And, as you can see in the memory, we have the space for three integers.
+
+So it means 3 times 4 bytes, between 0168, the address, and 0173.
+
+All right, so we return the pointer, and we just printf--
+
+well, please enter the three grades.
+
+All right.
+
+And let's do the first one--
+
+five.
+
+Let's do-- and you can see, in the memory, that the first address, 168, we
+
+have just put the number 5.
+
+For the second one, we scanf--
+
+let's put 10, for example.
+
+And, as you can see, at the address 168 plus 1--
+
+so, plus one size of int.
+
+So we go to 16C.
+
+We put 0A, which is the hexadecimal of 10.
+
+And, for the third one, let's put, I don't know, 8, for example.
+
+And in the memory, as you can see, at the address 170, which is 168 plus 2,
+
+we put the value 8.
+
+All right.
+
+So that's the end of the for-loop.
+
+And then we go inside the find average.
+
+All right?
+
+Then we have I. We have the average.
+
+And we will go through the array with this for loop,
+
+here, and just sum up all the elements.
+
+So the first is 5, the second is 10-- so, 15.
+
+The third is 8-- so, 23.
+
+And then we do 23 divided by 3, and we have an average of 7.6666, et cetera.
+
+So we return this average, and we just printf.
+
+So the average grade is 7.67.
+
+And then, because we have still in memory this big array,
+
+and we don't use it anymore, I just free it.
+
+All right?
+
+And I'll have plenty of memory to use again.
+
+So, if I had to calculate another thing, I
+
+could use the same space that was used by this array,
+
+by just allocating more cells.
+
+And it will be just at the same place.
+
+
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int * allocateIntArray(int);
+double findAverage(int *, int);
+
+int main(void)
+{
+    int num, i;
+    int * array;
+    double average;
+    printf("How many grades would you like to enter?");
+    scanf("%d",&num);
+    array = allocateIntArray(num);
+    printf("Please enter %d grades: ",num);
+    for(i=0;i<num;i++)
+    {
+        scanf("%d",array+i);
+    }
+    average = findAverage(array,num);
+    printf("The average grade is %.2f.\n",average);
+    free(array);
+    return 0;
+}
+
+int * allocateIntArray(int num)
+{
+    int * ptr = (int *) malloc(num * sizeof(int));
+    return ptr;
+}
+
+double findAverage(int * array, int num)
+{
+    int i;
+    double average = 0.0;
+    for(i=0;i<num;i++)
+    {
+        average += array[i];
+    }
+    average = average / num;
+    return average;
+}
