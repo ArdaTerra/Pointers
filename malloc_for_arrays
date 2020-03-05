@@ -1,0 +1,17 @@
+How to allocate space and memory for an entire array using malloc.
+The basic idea is to take the size of the data type you wish to store in the array, 
+and then multiply it by the number of elements for which you need space.
+
+#include <stdlib.h>
+int main(void) 
+{
+    int * array;
+    array = (int *) malloc(5*sizeof(int));
+    array[0] = 3;
+    array[1] = 44;
+    array[2] = 2;
+    * (array + 3) = 7;
+    * (array + 4) = -1;
+    free(array);
+    return 0;
+}
