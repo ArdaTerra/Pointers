@@ -1,0 +1,28 @@
+Store multiple strings in an array
+Suppose we wanted to store multiple words in an array. Each individual word is typically stored as an array of characters,
+so we're going to find ourselves with an array of arrays-- a so-called two dimensional array.
+
+Let me show you in an example. In order to declare a multidimensional array of characters, we would use the data type char.
+
+#include <stdio.h>
+int main(void)
+{
+    char words[3][10];
+    int i;
+    printf("Please enter three words: ");
+    for (i=0; i<3; i++) 
+    {
+        scanf("%s", words[i]);
+    }
+    printf("You entered: \n");
+    for (i=0; i<3; i++) 
+    {
+        printf("%s ", words[i]);
+    }
+    printf("\nFirst letters: \n");
+    for (i=0; i<3; i++) 
+    {
+        printf("\"%s\" starts with the letter '%c'.\n", words[i], words[i][0]);
+    }
+    return 0;
+}
